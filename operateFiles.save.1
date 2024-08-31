@@ -1,0 +1,21 @@
+,,,
+
+#!bin/bash
+
+name = "five"
+mkdir -v $HOME/$name
+
+for i in {1..5}
+do
+  mkdir -v  $HOME/$name/dir$i
+
+for k in {1..4} #create 4 file
+do 
+   touch $HOME/$name/dir$i/file$k
+   for ((k=1; k<=j; k++))
+   do
+      echo "echo $k"
+      echo $k >> $HOME/$name/dir$i/file$j
+   done
+done
+done

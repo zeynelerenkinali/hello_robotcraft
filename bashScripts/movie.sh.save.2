@@ -1,0 +1,92 @@
+#!/bin/bash
+#echo 'Interstellar'
+#echo 'Christopher Nolan'
+#echo 'Please enter a name:'
+#read name
+
+#echo 'What are your favorite foods? (Enter 3 foods)'
+#read -a foods
+
+#echo "$name, your favorite foods are: ${foods[0]}, ${foods[1]} and ${foods[2]}"
+
+The syntax in your conditional statement needs a slight correction. In Bash, the logical AND operator is `-a`, not `&&`. Additionally, when using conditional expressions with `[ ]`, each condition should be a separate expression. Here is the corrected version of your script:
+
+```bash
+#!/bin/bash
+
+if [ "$1" != "" ] && [ "$2" != "" ]; then
+    echo "First argument is $1, Second argument is $2"
+else
+    echo "Arguments do not exist"
+fi
+```
+
+### Explanation:
+
+1. **Conditional Check**:
+   - `[ "$1" != "" ]` checks if the first argument is not an empty string.
+   - `&&` is used for the logical AND operation.
+   - `[ "$2" != "" ]` checks if the second argument is not an empty string.
+
+2. **Correct Syntax**:
+   - Each condition `[ "$1" != "" ]` and `[ "$2" != "" ]` should be placed within its own pair of square brackets.
+   - The logical AND operator (`&&`) is used to combine these conditions.
+
+### Complete Example
+
+Save the following script to a file (e.g., `check_args.sh`), make it executable (`chmod +x check_args.sh`), and run it with arguments (`./check_args.sh arg1 arg2`):
+
+```bash
+#!/bin/bash
+
+if [ "$1" != "" ] && [ "$2" != "" ]; then
+    echo "First argument is $1, Second argument is $2"
+else
+    echo "Arguments do not exist"
+fi
+```
+
+### Running the Script
+
+You can run the script with two arguments:
+
+```bash
+./check_args.sh arg1 arg2
+```
+
+Output:
+
+```
+First argument is arg1, Second argument is arg2
+```
+
+And without arguments:
+
+```bash
+./check_args.sh
+```
+
+Output:
+m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+Arguments do not exist
+```
+
+
